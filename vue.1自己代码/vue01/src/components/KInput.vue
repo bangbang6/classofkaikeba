@@ -4,8 +4,10 @@
 </template>
 
 <script>
+import emitter from '../mixins/emitter'
 export default {
   inheritAttrs: false,
+  mixins: [emitter],
   props: {
     value: {
       type: String,
@@ -21,7 +23,9 @@ export default {
       this.$emit('input', e.target.value) //因为外层v-model是监听Input事件
 
       //触发校验
-      this.$parent.$emit('validate')
+      /* this.$parent.$emit('validate')*/
+
+      this.dispatch('kFormItem', 'validate')
     }
   }
 }

@@ -12,6 +12,7 @@ export default {
       form: this //传递Kform实例本身
     }
   },
+  componentName: "KForm",
   props: {
     model: {
       type: Object,
@@ -19,10 +20,17 @@ export default {
     },
     rules: Object
   },
+  created () {
+    this.fields = []
+    this.$on('kkb.form.add', item => {
+      //item是一个Item实例
+      this.fields.push(item)
+    })
+  },
   methods: {
     validate (cb) {
       //1.执行所有的promise执行结果
-      let tasks = this.$children.filter(item => item.prop).map(item => item.validate())
+      let tasks = this.fields.map(item => item.validate())
       Promise.all(tasks).then(() => cb(true)).catch(() => { cb(false) })
     }
   }

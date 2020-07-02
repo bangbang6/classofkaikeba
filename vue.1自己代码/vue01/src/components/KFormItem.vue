@@ -9,9 +9,12 @@
 
 <script>
 //label 和错误提示
+import emitter from '../mixins/emitter'
 import Schme from 'async-validator'
 export default {
+  componentName: "kFormItem",
   inject: ['form'],
+  mixins: [emitter],
   props: {
     label: {
       type: String,
@@ -30,6 +33,11 @@ export default {
     this.$on('validate', () => {
       this.validate()
     })
+    //通知kform新增一个kformitem实例
+    if (this.prop) {
+      this.dispatch('KForm', 'kkb.form.add', [this])
+    }
+
   },
   methods: {
     validate () {
