@@ -24,12 +24,15 @@
           counter: 1,
           desc: 'kvue<span style="color:red">真棒</span>',
           inputValue: 'input',
+          arrs: [],
         },
         methods: {
           handleClick() {
             // this必须是组件实例
             console.log(this)
             this.counter++
+            this.arrs.push(1)
+            console.log(this.arrs)
           },
         },
       })

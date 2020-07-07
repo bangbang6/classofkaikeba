@@ -1,3 +1,18 @@
+//数组响应式
+const originalProto = Array.prototype
+
+let arrayProto = Object.create(originalProto)
+;['push', 'pop', 'shift', 'unshift'].forEach((method) => {
+  arrayProto[method] = function() {
+    //原始操作
+    originalProto[method].apply(this, arguments)
+
+    //我们自己加的操作 也就是通知跟新
+
+    console.log('数组执行' + method)
+  }
+})
+
 function defineReactive(obj, key, val) {
   //闭包 因为val和key都得给外界用 所以会保存下来
   let dep = new Dep() //每次碰到data属性 就创建一个dep
@@ -24,7 +39,19 @@ function defineReactive(obj, key, val) {
 }
 function observe(obj) {
   if (typeof obj !== 'object' || obj == null) return
-  new Observer(obj)
+  if (Array.isArray(obj)) {
+    //数组
+    console.log('----------')
+    obj.__proto__ = arrayProto //设置对象的原型 替换成新的
+    let keys = Object.keys(obj)
+    //数组里面可能是对象或者数组
+    for (let i = 0; i < keys.length; i++) {
+      observe(obj[i])
+    }
+  } else {
+    //对象
+    new Observer(obj)
+  }
 }
 function proxy(vm) {
   Object.keys(vm.$data).forEach((key) => {
