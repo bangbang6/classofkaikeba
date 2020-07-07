@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <a href="javasctipt:void(0)" onClick="gotoHistory('?user')">去user</a>
+    <a href="javasctipt:void(0)" onClick="gotoHistory('?goods')">去goods</a>
+  </body>
+  <script>
+    //pushState()函数可以改变地址栏 但是不发送请求
+    let text
+    function gotoHistory(url) {
+      switch (url) {
+        case '?user':
+          text = 'usesr'
+          break
+        case '?goods':
+          text = 'goods'
+          break
+      }
+
+      //判断后对地址栏url改变 并不会请求
+      history.pushState({}, null, url)
+      //根据地址栏去做改变
+      document.getElementById('app').innerHTML = text
+      //更据path来渲染 而不是去请求
+      window.onload = function() {
+        let text2
+        let path = location.pathname
+        switch (path) {
+          case '?user':
+            text2 = 'usesr'
+            break
+          case '?goods':
+            text2 = 'goods'
+            break
+        }
+        document.getElementById('app').innerHTML = text2
+      }
+    }
+  </script>
+</html>
