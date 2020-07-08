@@ -8,5 +8,8 @@
 //a有个dep管理a属性 比如this.a = 1
 //b同a
 //ob左右就是将对象响应式 不然不能递归将所有对象属性响应式 并且可以标记对象 防止重复标记
-//this.obj = {a:1}这个{a:1}是一个新对象所以要跟新 就算data里面有obj这个也是新对象
+//this.obj = {a:1}这个{a:1}是一个新对象所以要跟新 就算data里面有obj这个也是新对象 没有——ob_属性
 //this.obj.a = 1这个就是老对象 不需要重新new Oberver因为他又_ob_属性
+
+//$set 判断是否是数组 是就用自己定义原型的splice方法 再看是否已经存在这个属性 最后再去defineReactive这个属性 再去用childob的dep去通知更新不是属性的dep
+//$del 判断数组 直接用数组删除 判断对象 直接delete 在用childob的dep去通知更新
