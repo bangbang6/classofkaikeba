@@ -6,7 +6,7 @@ import Input from '../components/Input'
 const nameRules = { required: true, message: '请输入姓名！' }
 const passworRules = { required: true, message: '请输入密码！' }
 
-/* export default class MyRCFieldForm extends Component {
+export default class MyRCFieldForm extends Component {
   formRef = React.createRef()
   componentDidMount() {
     console.log('form', this.formRef.current)
@@ -17,7 +17,7 @@ const passworRules = { required: true, message: '请输入密码！' }
     console.log('onFinish', val)
   }
 
-   表单校验失败执行 
+  //表单校验失败执行
   onFinishFailed = (val) => {
     console.log('onFinishFailed', val)
   }
@@ -41,8 +41,8 @@ const passworRules = { required: true, message: '请输入密码！' }
       </div>
     )
   }
-} */
-export default function MyRCFieldForm(props) {
+}
+/* export default function MyRCFieldForm(props) {
   const [form] = Form.useForm()
 
   const onFinish = (val) => {
@@ -73,4 +73,4 @@ export default function MyRCFieldForm(props) {
       </Form>
     </div>
   )
-}
+} */
