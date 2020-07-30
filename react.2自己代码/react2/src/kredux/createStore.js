@@ -4,7 +4,7 @@ export function createStore(reducer, enhancer) {
   }
   let currentStore = 0
   let cbs = []
-  function getStore() {
+  function getState() {
     return currentStore
   }
   function dispatch({ type, payload }) {
@@ -21,7 +21,7 @@ export function createStore(reducer, enhancer) {
   }
   dispatch('xxxxx')
   return {
-    getStore,
+    getState,
     dispatch,
     subscribe,
   }

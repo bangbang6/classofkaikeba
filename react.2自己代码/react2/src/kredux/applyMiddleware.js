@@ -8,7 +8,7 @@ export function applyMiddleware(...middlewares) {
   return (createStore) => (reducer) => {
     let store = createStore(reducer)
     let middlewareApi = {
-      getStore: store.getStore,
+      getState: store.getState,
       dispatch: () => store.dispatch,
     }
 
