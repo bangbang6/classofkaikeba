@@ -1,0 +1,3 @@
+//相当于didmount didupdate 在数据更新时候会重新执行 返回值会在卸载时候执行 相当于unmount
+//useLayoutEffect 是和dom渲染同步执行的 effect是异步的 dom渲染完才会延迟执行
+//!useLayoutEffect使用在函数有dom样式操作需要影响的时候比如高度变化需要和dom同步更新
