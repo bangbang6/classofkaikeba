@@ -10,13 +10,13 @@ class ClassComponent extends Component {
     return (
       <div className="compoenntclass">
         class组件 - {this.props.name}
-        <p className={this.props.color}>defaultProps</p>{' '}
+        <p className={this.props.color}>defaultProps</p>
       </div>
     )
   }
 }
 function FunctionComponent(props) {
-  return <div className="functionComp"> function组件 - {props.name}</div>
+  return <div className="functionComp">function组件 - {props.name}</div>
 }
 let jsx = (
   <div className="border">
@@ -32,10 +32,10 @@ let jsx = (
         <div>item-{item}</div>
       ))}
     </FunctionComponent>
-    <>
+    {/* <>
       <p>frag</p>
       <p>frag2</p>
-    </>
+    </> */}
   </div>
 )
 ReactDOM.render(jsx, document.getElementById('root'))

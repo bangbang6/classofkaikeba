@@ -1,6 +1,9 @@
-.pink{
-  color:pink
+.pink {
+  color: pink;
 }
-.red{
-  color:red
+.red {
+  color: red;
+}
+.border {
+  border: 1px solid black;
 }
