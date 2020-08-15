@@ -1,5 +1,5 @@
 import React from './kreact/index'
-import ReactDOM from './kreact/react-dom'
+import ReactDOM, { useState } from './kreact/react-dom'
 import Component from './kreact/Component'
 import './index.css'
 class ClassComponent extends Component {
@@ -16,7 +16,14 @@ class ClassComponent extends Component {
   }
 }
 function FunctionComponent(props) {
-  return <div className="functionComp">function组件 - {props.name}</div>
+  let [count, setCount] = useState(0)
+  return (
+    <div className="functionComp">
+      function组件 - {props.name}
+      <button onClick={() => setCount(count + 1)}>{count}</button>
+      {count % 2 ? <div>omg</div> : <button>omg2</button>}
+    </div>
+  )
 }
 let jsx = (
   <div className="border">
