@@ -20,9 +20,11 @@ function createElement(type, config, ...children) {
       }
     }
   }
+  delete props.key
   return {
     type,
     props,
+    key: config.key || '',
   }
 }
 function createTextNode(text) {

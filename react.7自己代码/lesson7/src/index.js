@@ -2,6 +2,7 @@ import React from './kreact/index'
 import ReactDOM, { useState } from './kreact/react-dom'
 import Component from './kreact/Component'
 import './index.css'
+import DiffPage from './pages/DiffPage'
 class ClassComponent extends Component {
   static defaultProps = {
     color: 'pink',
@@ -45,7 +46,7 @@ let jsx = (
     </> */}
   </div>
 )
-ReactDOM.render(jsx, document.getElementById('root'))
+ReactDOM.render(<DiffPage />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
