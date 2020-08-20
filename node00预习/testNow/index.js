@@ -1,6 +1,8 @@
 let path = require('path')
 const fs = require('fs')
-
+//!path.resolve() 方法会将路径或路径片段的序列解析为绝对路径 结果和当前工作目录有关即运行命令行的路径最终返回绝对路径
+//!__dirname __dirname 总是指向被执行 js 文件的绝对路径，所以当你在 /d1/d2/myscript.js 文件中写了 __dirname， 它的值就是 /d1/d2和你在控制台运行的路径无关和文件所在位置有关
+//!可以把他等同于'./'的绝对路径
 module.exports = class TextNow {
   /**
    * 生成测试文件名
