@@ -1,0 +1,18 @@
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  ;(async () => {
+    //跨域 三不同 协议 域名 端口号
+    axios.defaults.baseURL = 'http://localhost:4000'
+    axios.defaults.withCredentials = true //表示axios可以送cookie
+
+    const res = await axios.get('/api/users', {
+      headers: { 'X-Token': 'jilei' },
+    })
+    console.log('data', res.data)
+    document.writeln(`Response : ${JSON.stringify(res.data)}`)
+  })()
+</script> -->
+<form action="/api/save" method="post">
+  <input type="text" name="abc" value="123" />
+  <input type="submit" value="save" />
+</form>
