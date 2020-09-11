@@ -1,0 +1,10 @@
+let Koa = require('koa')
+let conf = require('./config')
+let app = new Koa()
+let { loadModel } = require('./framework/loader')
+let restful = require('./framework/router')
+loadModel(conf)(app)
+app.use(restful)
+app.listen(3000, () => {
+  console.log('listen at 3000')
+})
