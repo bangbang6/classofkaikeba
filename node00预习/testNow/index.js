@@ -41,6 +41,7 @@ test('${'test ' + methodName}',()=>{
    */
 
   genJestSource(sourcePath = path.resolve('./')) {
+    //一般fs的都是用绝对路径 用__dirname 或者 reslove处理下
     const testPath = `${sourcePath}/__test__`
     if (!fs.existsSync(testPath)) {
       fs.mkdirSync(testPath)
