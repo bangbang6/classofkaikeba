@@ -45,7 +45,10 @@ module.exports = {
 //![hash] :就是webpack某次打包自己生成的hash值 可以在命令行中看到 可以通过冒号来控制位数
 //hash值什么时候变化？ //!只要源码内容发生变化就变 不是打包一次就变化一次 要内容变
 //![chunkhash] 和 [hash] 和 [contenthash] 什么区别?
+//1.hash://!只要源码内容发生变化就变 不是打包一次就变化一次 要内容变
 
+//2.contenthash//!自身内容发生变化才会改变 比如js css都有hash 但是改了js css如果用hash的话就都会变 用contenthash的话 js变了css的contenthash不会变
+//3.chunkhash //!自身chunk相关的内容发生变化时候才会发生变化
 //loader: webpack只会处理js json文件 其他文件就不知道怎么处理
 
 //plugin 扩展webpack功能
