@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          //目标环境
+          "edge": "17",
+          "firefox": "60",
+          "chrome": "67",
+          "safari": "11"
+        },
+        "corejs": 2, //core-js这个核心库的版本
+        //实现按需加载 不用把所有polifill的新特性都弄进来 用的什么特性就加载什么特性
+        "useBuiltIns": "usage"
+      }
+    ],
+    "@babel/preset-react"
+  ] //预设 一般是先对语法进行一定的转换  env直接包括啦所有年来的特性 不用装2016 2017这些插件了 而且有ts flow react等对类型进行检查的插件
+}
+//babel配置配置预设的配置
