@@ -5,4 +5,7 @@
 ##### 启动
 
 npm install
+
+---
+
 node buddle.js
