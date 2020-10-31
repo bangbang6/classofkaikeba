@@ -39,6 +39,29 @@ class Company {
     });
     return listModel;
   }
+
+  static List<Company> fromMapData(Map data) {
+    List<Company> listModel = new List<Company>();
+    List list = data['list'];
+    list.forEach((v) {
+      var model = Company.fromNetMap(v);
+      listModel.add(model);
+    });
+    return listModel;
+  }
+
+  static Company fromNetMap(Map map) {
+    return new Company(
+        logo: map['logo_url'],
+        name: map['market_name'],
+        location: map['download_times_fixed'],
+        type: map['type'],
+        size: map['tag'],
+        employee: map['market_id'],
+        hot: map['download_times_fixed'],
+        count: map['cid2'],
+        inc: map['baike_name']);
+  }
 }
 
 /*{
