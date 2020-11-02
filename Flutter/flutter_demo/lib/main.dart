@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/Nav/FindScreenProvider.dart';
+import 'package:flutter_demo/provider/company_list.dart';
+import 'package:flutter_demo/work3/TrendScreen.dart';
 
 import 'Nav/FindScreen.dart';
 import 'Nav/FriendScreen.dart';
 import 'Nav/ManagerScreen.dart';
 import 'Nav/MyScreen.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => CompanyListProvider())],
+    child: MyApp()));
 
 //暗号:初见Flutter
 class MyApp extends StatelessWidget {
@@ -32,7 +38,7 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreenState extends State<FirstScreen> {
   final List<Widget> _children = [
     FriendScreen(),
-    FindScreen(),
+    FindScreenProvider(),
     ManagerScreen(),
     MyScreen()
   ];

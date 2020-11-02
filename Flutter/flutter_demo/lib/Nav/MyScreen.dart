@@ -28,6 +28,9 @@ class _MyScreenState extends State<MyScreen> {
   void initState() {
     super.initState();
 
+    /*  //listen的含义
+    CompanyListProvider provider = Provider.of<CompanyListProvider>(context, listen: false); //拿到provider
+    provider.refrshData();*/ //执行provider里面定义的函数
     getCompanyList2();
   }
 
@@ -42,6 +45,15 @@ class _MyScreenState extends State<MyScreen> {
   }
 
   Widget _buildContent() {
+    //套用consumer来使用provider 参数的provider就是定义的provider 可以获取参数或者执行内部定义的函数
+    //!可以有两种形式获取provider 1.  CompanyListProvider provider = Provider.of<CompanyListProvider>(context, listen: false); 2.  return Consumer<CompanyListProvider>(
+    //!第一种是用来显示数据的和组件相关 第二个是用来执行函数改变内部数据的 分工不同 具体用法看findProvideer.dart文件
+/*
+     return Consumer<CompanyListProvider>(
+      builder: (context, provider, _) {
+      return IndexedStack(
+        index: provider.showValue,
+        children: <Widget>[*/
     if (_companies.isEmpty) {
       return new Center(
         child: CircularProgressIndicator(),
@@ -71,7 +83,7 @@ class _MyScreenState extends State<MyScreen> {
               Navigator.push(
                   context,
                   new MaterialPageRoute(
-                      builder: (context) => new SecondPage()));
+                      builder: (context) => new SecondPage(model)));
             },
           );
         },

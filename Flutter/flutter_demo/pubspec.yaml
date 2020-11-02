@@ -33,6 +33,9 @@ dev_dependencies:
     sdk: flutter
   http: ^0.12.1
   pull_to_refresh: ^1.6.0
+  shared_preferences: ^0.5.10
+  provider: ^4.0.4
+  webview_flutter: ^0.3.21
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
