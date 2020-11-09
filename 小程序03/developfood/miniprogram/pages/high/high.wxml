@@ -1,0 +1,3 @@
+<!-- miniprogram/pages/high/high.wxml -->
+<canvas type="2d" id="myCanvas" style="height:300px;width:300px;"></canvas>
+<button bindtap='save' type="primary">保存海报</button>

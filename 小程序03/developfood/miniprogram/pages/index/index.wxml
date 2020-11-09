@@ -1,0 +1,14 @@
+<!-- index.wxml -->
+<view class="container">
+  <button open-type="contact" type="primary">客服聊天</button>
+  <button bindtap='bindTap' type="primary">地理位置</button>
+  <button bindtap='bindTap2' type="primary">微信步数</button>
+  <button bindtap='btnScancode' type="primary">扫码识别</button>
+  <button bindtap='add' type="primary">两数相加</button>
+  <button bindtap='toPic' type="primary">海报分享</button>
+  <button bindtap='toSubscribe' type="primary">订阅消息</button>
+  <view>
+    <image src='{{cover_url}}' mode="widthFix"></image>
+    <view>{{title}}</view>
+  </view>
+</view>
